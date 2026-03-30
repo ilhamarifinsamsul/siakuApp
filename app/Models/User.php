@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -43,5 +44,26 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    /**
+     * The attributes that are mass assignable.
+     * 
+     * @return array<int, string>
+     */
+    function getFillable()
+    {
+        return $this->fillable;
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     * 
+     * @param array<int, string> $fillable The attributes that are mass assignable.
+     * @return User
+     */
+    function setFillable($fillable): self
+    {
+        $this->fillable = $fillable;
+        return $this;
     }
 }
