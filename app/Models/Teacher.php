@@ -6,12 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FeeGroup extends Model
+class Teacher extends Model
 {
     use HasFactory;
     use SoftDeletes;
     protected $fillable = [
-        'group',
-        'amount'
+        'user_id',
+        'faculty_id',
+        'department_id',
+        'teacher_number',
+        'academic_title'
     ];
+
 }
