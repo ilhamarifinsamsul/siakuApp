@@ -17,4 +17,16 @@ class StudyResult extends Model
         'semester',
         'gpa',
     ];
+
+    public function student(){
+        return $this->belongsTo(Student::class);
+    }
+
+    public function academicYear(){
+        return $this->belongsTo(AcademicYear::class);
+    }
+
+    public function grades(){
+        return $this->hasMany(StudyResultGrade::class);
+    }
 }

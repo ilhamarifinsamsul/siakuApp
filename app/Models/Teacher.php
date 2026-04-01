@@ -18,4 +18,16 @@ class Teacher extends Model
         'academic_title'
     ];
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function faculty(){
+        return $this->belongsTo(Faculty::class);
+    }
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
+
 }

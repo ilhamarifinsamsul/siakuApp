@@ -30,4 +30,27 @@ class Schedule extends Model
         ];
     }
 
+    public function faculty(){
+        return $this->belongsTo(Faculty::class);
+    }
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
+
+    public function course(){
+        return $this->belongsTo(Course::class);
+    }
+
+    public function classroom(){
+        return $this->belongsTo(Classroom::class);
+    }
+
+    public function academicYear(){
+        return $this->belongsTo(AcademicYear::class);
+    }
+
+    public function studyPlans(){
+        return $this->belongsToMany(StudyPlan::class, 'study_plan_schedule')->withTimestamps();
+    }
 }

@@ -22,4 +22,35 @@ class Course extends Model
         'semester',
     ];
 
+    public function faculty()
+    {
+        return $this->belongsTo(Faculty::class);
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    // public function teacher()
+    // {
+    //     return $this->belongsTo(Teacher::class);
+    // }
+
+    public function academicYear()
+    {
+        return $this->belongsTo(AcademicYear::class);
+    }
+
+    public function schedules(){
+        return $this->hasMany(Schedule::class);
+    }
+
+    public function attendances(){
+        return $this->hasMany(Attendance::class);
+    }
+
+    public function grades(){
+        return $this->hasMany(Grade::class);
+    }
 }

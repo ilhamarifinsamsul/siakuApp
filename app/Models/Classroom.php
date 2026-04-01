@@ -17,4 +17,31 @@ class Classroom extends Model
         'name',
         'slug'
     ];
+
+    public function faculty()
+    {
+        return $this->belongsTo(Faculty::class);
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function academicYear()
+    {
+        return $this->belongsTo(AcademicYear::class);
+    }
+
+    public function students(){
+        return $this->hasMany(Student::class);
+    }
+
+    public function schedules(){
+        return $this->hasMany(Schedule::class);
+    }
+
+    public function courses(){
+        return $this->hasManyThrough(Course::class, Schedule::class, 'classroom_id', 'id', 'id', 'course_id');
+    }
 }

@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @return array<int, string>
      */
     function getFillable()
@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @param array<int, string> $fillable The attributes that are mass assignable.
      * @return User
      */
@@ -65,5 +65,17 @@ class User extends Authenticatable
     {
         $this->fillable = $fillable;
         return $this;
+    }
+
+    public function student(){
+        return $this->hasOne(Student::class);
+    }
+
+    public function teacher(){
+        return $this->hasOne(Teacher::class);
+    }
+
+    public function operator(){
+        return $this->hasOne(Operator::class);
     }
 }
