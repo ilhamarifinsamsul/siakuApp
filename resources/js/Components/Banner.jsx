@@ -1,8 +1,8 @@
-import { Link } from "@inertiajs/react";
+import { Link } from '@inertiajs/react';
 
-export default function Banner({message}){
-    return(
-        <div className="fixed inset-x-0 bottom-0 pointer-events-none lg:flex lg:justify-center sm:px-6 lg:px-8 lg:pb-5">
+export default function Banner({ message }) {
+    return (
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 sm:px-6 lg:flex lg:justify-center lg:px-8 lg:pb-5">
             <div className="pointer-events-none flex items-center justify-between gap-6 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 px-6 py-2.5 sm:rounded-xl sm:py-3 sm:pl-4 sm:pr-3.5">
                 <p className="text-sm leading-6 text-white">
                     <Link href="#">
@@ -12,5 +12,5 @@ export default function Banner({message}){
                 </p>
             </div>
         </div>
-    )
+    );
 }

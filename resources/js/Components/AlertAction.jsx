@@ -1,16 +1,24 @@
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/Components/ui/alert-dialog"
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from '@/Components/ui/alert-dialog';
 
 export default function AlertAction({
     triger,
     action,
     title = 'Apakah anda yakin?',
-    description = 'Tindakan ini akan menghapus data secara permanen dan menghapus data dari server kami'
-}){
+    description = 'Tindakan ini akan menghapus data secara permanen dan menghapus data dari server kami',
+}) {
     return (
         <AlertDialog>
-            <AlertDialogTrigger asChild>
-                {triger}
-            </AlertDialogTrigger>
+            <AlertDialogTrigger asChild>{triger}</AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>{title}</AlertDialogTitle>
@@ -22,6 +30,5 @@ export default function AlertAction({
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
-    )
-
+    );
 }
