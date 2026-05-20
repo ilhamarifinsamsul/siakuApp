@@ -11,4 +11,11 @@ export default defineConfig({
         }),
         react(),
     ],
+    // TAMBAHKAN BLOK KODE DI BAWAH INI
+    server: {
+        hmr: {
+            host: 'siakuapp.test',
+            protocol: 'wss', // Memaksa menggunakan Secure WebSocket bawaan Herd
+        },
+    },
 });

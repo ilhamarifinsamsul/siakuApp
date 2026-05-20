@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('day_of_week');
             $table->unsignedInteger(column: 'quote')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

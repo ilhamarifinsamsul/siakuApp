@@ -23,6 +23,7 @@ return new class extends Migration
             $table->year(column: 'batch');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId(column: 'department_id')->constrained()->cascadeOnDelete();
             $table->string('employee_number')->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

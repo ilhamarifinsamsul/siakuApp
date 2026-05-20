@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedInteger(column: 'credit');
             $table->unsignedInteger(column: 'semester');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
