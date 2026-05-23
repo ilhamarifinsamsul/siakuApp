@@ -1,12 +1,22 @@
 import { Avatar, AvatarFallback } from '@/Components/ui/avatar';
 import { Toaster } from '@/Components/ui/sonner';
+import { flashMessage } from '@/lib/utils';
 import { Dialog, Transition } from '@headlessui/react';
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { IconLayoutSidebar, IconX } from '@tabler/icons-react';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
+import { toast } from 'sonner';
 export default function AppLayout({ title, children }) {
     // state sidebar responsive
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    // flash message
+    const flash = flashMessage(usePage());
+
+    useEffect(() => {
+        if (flash && flash.message && flash.type === 'warning') {
+            toast[flash.type](flash.message);
+        }
+    }, [flash]);
 
     return (
         <>
@@ -78,7 +88,7 @@ export default function AppLayout({ title, children }) {
                     >
                         <IconLayoutSidebar className="size-6" />
                     </button>
-                    <div className="text-foreground flex-1 text-sm font-semibold leading-6">{title}</div>
+                    <div className="flex-1 text-sm font-semibold leading-6 text-foreground">{title}</div>
                     <Link href="#">
                         <Avatar>
                             <AvatarFallback>X</AvatarFallback>
