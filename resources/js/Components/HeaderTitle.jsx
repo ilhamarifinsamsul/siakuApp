@@ -5,7 +5,7 @@ export default function HeaderTitle({ title, subTitle, icon: Icon }) {
                 <Icon className="size-6" />
                 <h1 className="line-clamp-1 text-lg font-bold lg:text-2xl">{title}</h1>
             </div>
-            <p className="text-muted-foreground line-clamp-2 text-sm lg:text-base">{subTitle}</p>
+            <p className="line-clamp-2 text-sm text-muted-foreground lg:text-base">{subTitle}</p>
         </div>
     );
 }

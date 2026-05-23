@@ -7,7 +7,7 @@ export default function ShowFilter({ params, className = '' }) {
     return (
         <div>
             {Object.keys(params).some((key) => params[key]) && (
-                <div className={cn('bg-secondary flex w-full flex-wrap gap-y-2 p-3')}>
+                <div className={cn('flex w-full flex-wrap gap-y-2 bg-secondary p-3')}>
                     <span className="flex items-center gap-1 text-sm">
                         <IconFilter className="size-4" />
                         Filters:

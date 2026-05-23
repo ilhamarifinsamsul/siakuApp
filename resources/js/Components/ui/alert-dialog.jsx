@@ -36,7 +36,7 @@ function AlertDialogContent({ className, size = 'default', ...props }) {
                 data-slot="alert-dialog-content"
                 data-size={size}
                 className={cn(
-                    'group/alert-dialog-content bg-popover text-popover-foreground ring-foreground/10 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 fixed left-1/2 top-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl p-4 outline-none ring-1 duration-100 data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm',
+                    'group/alert-dialog-content ring-foreground/10 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 fixed left-1/2 top-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-popover-foreground outline-none ring-1 duration-100 data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm',
                     className,
                 )}
                 {...props}
@@ -76,7 +76,7 @@ function AlertDialogMedia({ className, ...props }) {
         <div
             data-slot="alert-dialog-media"
             className={cn(
-                "bg-muted *:[svg:not([class*='size-'])]:size-6 mb-2 inline-flex size-10 items-center justify-center rounded-md sm:group-data-[size=default]/alert-dialog-content:row-span-2",
+                "*:[svg:not([class*='size-'])]:size-6 mb-2 inline-flex size-10 items-center justify-center rounded-md bg-muted sm:group-data-[size=default]/alert-dialog-content:row-span-2",
                 className,
             )}
             {...props}
@@ -102,7 +102,7 @@ function AlertDialogDescription({ className, ...props }) {
         <AlertDialogPrimitive.Description
             data-slot="alert-dialog-description"
             className={cn(
-                'text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground text-balance text-sm md:text-pretty',
+                '*:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground text-balance text-sm text-muted-foreground md:text-pretty',
                 className,
             )}
             {...props}

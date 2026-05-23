@@ -30,7 +30,7 @@ function AlertTitle({ className, ...props }) {
         <div
             data-slot="alert-title"
             className={cn(
-                'font-heading [&_a]:underline-offset-3 [&_a]:hover:text-foreground font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline',
+                'font-heading [&_a]:underline-offset-3 font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:hover:text-foreground',
                 className,
             )}
             {...props}
@@ -43,7 +43,7 @@ function AlertDescription({ className, ...props }) {
         <div
             data-slot="alert-description"
             className={cn(
-                'text-muted-foreground [&_a]:underline-offset-3 [&_a]:hover:text-foreground text-balance text-sm md:text-pretty [&_a]:underline [&_p:not(:last-child)]:mb-4',
+                '[&_a]:underline-offset-3 text-balance text-sm text-muted-foreground md:text-pretty [&_a]:underline [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4',
                 className,
             )}
             {...props}

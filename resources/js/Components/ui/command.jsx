@@ -10,7 +10,7 @@ function Command({ className, ...props }) {
         <CommandPrimitive
             data-slot="command"
             className={cn(
-                'rounded-xl! bg-popover text-popover-foreground flex size-full flex-col overflow-hidden p-1',
+                'rounded-xl! flex size-full flex-col overflow-hidden bg-popover p-1 text-popover-foreground',
                 className,
             )}
             {...props}
@@ -90,7 +90,7 @@ function CommandGroup({ className, ...props }) {
         <CommandPrimitive.Group
             data-slot="command-group"
             className={cn(
-                'text-foreground **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground overflow-hidden p-1',
+                '**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground overflow-hidden p-1 text-foreground',
                 className,
             )}
             {...props}
@@ -102,7 +102,7 @@ function CommandSeparator({ className, ...props }) {
     return (
         <CommandPrimitive.Separator
             data-slot="command-separator"
-            className={cn('bg-border -mx-1 h-px', className)}
+            className={cn('-mx-1 h-px bg-border', className)}
             {...props}
         />
     );
@@ -129,7 +129,7 @@ function CommandShortcut({ className, ...props }) {
         <span
             data-slot="command-shortcut"
             className={cn(
-                'text-muted-foreground group-data-selected/command-item:text-foreground ml-auto text-xs tracking-widest',
+                'group-data-selected/command-item:text-foreground ml-auto text-xs tracking-widest text-muted-foreground',
                 className,
             )}
             {...props}
