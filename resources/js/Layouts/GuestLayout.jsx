@@ -1,18 +1,17 @@
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import { Link } from '@inertiajs/react';
+import { Toaster } from '@/Components/ui/sonner';
+import { Head } from '@inertiajs/react';
 
-export default function GuestLayout({ children }) {
+export default function GuestLayout({ children, title }) {
     return (
-        <div className="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0">
-            <div>
-                <Link href="/">
-                    <ApplicationLogo className="h-20 w-20 fill-current text-gray-500" />
-                </Link>
-            </div>
+        <>
+            {/* Head hanya digunakan untuk title dan meta tags */}
+            <Head title={title} />
 
-            <div className="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg">
-                {children}
-            </div>
-        </div>
+            {/* Elemen UI diletakkan di luar Head */}
+            <Toaster position="top-center" richColor />
+
+            {/* Bungkus children dengan div, main, atau biarkan seperti ini agar dirender ke body */}
+            <main>{children}</main>
+        </>
     );
 }

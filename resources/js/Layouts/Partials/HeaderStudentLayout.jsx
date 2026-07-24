@@ -124,7 +124,7 @@ export default function HeaderStudentLayout({ url }) {
                                                 </DropdownMenuLabel>
                                                 <DropdownMenuSeparator />
                                                 <DropdownMenuItem asChild>
-                                                    <Link>
+                                                    <Link href={route('logout')} method="post" as="button">
                                                         <IconLogout2 />
                                                         Logout
                                                     </Link>
@@ -213,8 +213,9 @@ export default function HeaderStudentLayout({ url }) {
                                 </div>
                                 <div className="mt-3 space-y-1 px-2">
                                     <Disclosure.Button
-                                        as="a"
-                                        href="#"
+                                        as="button"
+                                        href={route('logout')}
+                                        method="post"
                                         className="flex items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-500"
                                     >
                                         <IconLogout2 className="size-5" />
