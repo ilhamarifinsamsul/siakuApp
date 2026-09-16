@@ -1,6 +1,7 @@
 import NavLink from '@/Components/NavLink';
 import {
     IconBook,
+    IconBooks,
     IconBuildingSkyscraper,
     IconCalendar,
     IconCalendarTime,
@@ -13,6 +14,7 @@ import {
     IconSchool,
     IconUser,
     IconUserCog,
+    IconUsers,
     IconUsersGroup,
 } from '@tabler/icons-react';
 
@@ -96,58 +98,72 @@ export default function SidebarResponsive({ auth, url }) {
                         />
                     </>
                 )}
-
                 {/* SideBar Teacher */}
                 {auth.roles.some((role) => ['Teacher'].includes(role)) && (
                     <>
                         <NavLink
                             url="#"
-                            active={url.startsWith('/admin/dashboard')}
+                            active={url.startsWith('/teachers/dashboard')}
                             title="Dashboard"
                             icon={IconLayout2}
                         />
 
-                        <div className="px-3 py-2 text-xs font-medium text-white">Master Data</div>
+                        <div className="px-3 py-2 text-xs font-medium text-white">Data Akademik</div>
                         <NavLink
                             url="#"
-                            active={url.startsWith('/admin/faculties')}
-                            title="Fakultas"
-                            icon={IconBuildingSkyscraper}
+                            active={url.startsWith('/teachers/courses')}
+                            title="Mata Kuliah"
+                            icon={IconBook}
                         />
                         <NavLink
                             url="#"
-                            active={url.startsWith('/admin/departments')}
-                            title="Program Study"
-                            icon={IconSchool}
+                            active={url.startsWith('/teachers/schedules')}
+                            title="Jadwal Kuliah"
+                            icon={IconCalendar}
                         />
+                    </>
+                )}
+                {/* Sidebar Operator */}
+                {auth.roles.some((role) => ['Operator'].includes(role)) && (
+                    <>
                         <NavLink
                             url="#"
-                            active={url.startsWith('/admin/academic-years')}
-                            title="Tahun Akademik"
-                            icon={IconCalendarTime}
+                            active={url.startsWith('/operators/dashboard')}
+                            title="Dashboard"
+                            icon={IconLayout2}
                         />
-                        <NavLink url="#" active={url.startsWith('/admin/classroom')} title="Kelas" icon={IconDoor} />
 
                         <div className="px-3 py-2 text-xs font-medium text-white">Data Pengguna</div>
-                        <NavLink url="#" active={url.startsWith('/admin/students')} title="Mahasiswa" icon={IconUser} />
                         <NavLink
                             url="#"
-                            active={url.startsWith('/admin/teachers')}
-                            title="Dosen"
+                            active={url.startsWith('/operators/students')}
+                            title="Data Mahasiswa"
+                            icon={IconUsers}
+                        />
+                        <NavLink
+                            url="#"
+                            active={url.startsWith('/operators/teachers')}
+                            title="Data Dosen"
                             icon={IconUsersGroup}
                         />
 
                         <div className="px-3 py-2 text-xs font-medium text-white">Data Akademik</div>
                         <NavLink
                             url="#"
-                            active={url.startsWith('/admin/courses')}
-                            title="Mata Kuliah"
-                            icon={IconBook}
+                            active={url.startsWith('/operators/classrooms')}
+                            title="Data Kelas"
+                            icon={IconDoor}
                         />
                         <NavLink
                             url="#"
-                            active={url.startsWith('/admin/schedules')}
-                            title="Jadwal Kuliah"
+                            active={url.startsWith('/operators/courses')}
+                            title="Mata Kuliah"
+                            icon={IconBooks}
+                        />
+                        <NavLink
+                            url="#"
+                            active={url.startsWith('/operators/schedules')}
+                            title="Jadwal"
                             icon={IconCalendar}
                         />
                     </>
