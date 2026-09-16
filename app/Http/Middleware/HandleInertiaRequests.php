@@ -51,7 +51,7 @@ class HandleInertiaRequests extends Middleware
             'checkFee' => fn() => $request->user() && $request->user()->student
             ? Fee::query()
             ->where('student_id', operator: auth()->user()->student->id)
-            ->where('academic_year_id', operator: activeAcademicYear()->id)
+            ->where('academic_year_id', operator: activeAcademicYear()?->id)
             ->where('semester', operator: auth()->user()->student->semester)
             ->where('status', FeeStatus::SUCCESS->value) : null
         ];
