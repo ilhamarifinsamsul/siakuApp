@@ -196,6 +196,7 @@ export default function Sidebar({ auth, url }) {
                     as="button"
                     title="Logout"
                     icon={IconLogout}
+                    className="w-full"
                 />
             </ul>
         </nav>
