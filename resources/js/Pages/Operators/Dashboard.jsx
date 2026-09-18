@@ -1,8 +1,11 @@
+import CardStat from '@/Components/CardStat';
 import HeaderTitle from '@/Components/HeaderTitle';
 import AppLayout from '@/Layouts/AppLayout';
-import { IconLayout2 } from '@tabler/icons-react';
+import { usePage } from '@inertiajs/react';
+import { IconBooks, IconDoorEnter, IconLayout2, IconUser, IconUsersGroup } from '@tabler/icons-react';
 
 export default function Dashboard(props) {
+    const auth = usePage().props.auth.user;
     return (
         <div className="flex w-full flex-col pb-12">
             <div className="mb-8 flex flex-col items-start justify-between gap-y-6 lg:flex-row lg:items-center">
@@ -11,6 +14,57 @@ export default function Dashboard(props) {
                     subTitle={props.page_settings.subTitle}
                     icon={IconLayout2}
                 />
+            </div>
+            <div className="mb-8 flex flex-col">
+                <h2 className="text-xl font-medium leading-relaxed text-foreground">Hii, {auth.name}</h2>
+                <p className="text-sm text-muted-foreground">Selamat Datang di Sistem Informasi Akademik</p>
+            </div>
+            {/* menampilkan statistik*/}
+            <div className="mb-8 grid gap-4 lg:grid-cols-4">
+                {/* Total Mahasiswa */}
+                <CardStat
+                    data={{
+                        title: 'Total Mahasiswa',
+                        icon: IconUsersGroup,
+                        background: 'text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600',
+                        iconClassName: 'text-white',
+                    }}
+                >
+                    <div className="text-2xl font-bold">{props.count.students}</div>
+                </CardStat>
+                {/* Total Teacher */}
+                <CardStat
+                    data={{
+                        title: 'Total Dosen',
+                        icon: IconUser,
+                        background: 'text-white bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600',
+                        iconClassName: 'text-white',
+                    }}
+                >
+                    <div className="text-2xl font-bold">{props.count.teachers}</div>
+                </CardStat>
+                {/* classroom */}
+                <CardStat
+                    data={{
+                        title: 'Total Kelas',
+                        icon: IconDoorEnter,
+                        background: 'text-white bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600',
+                        iconClassName: 'text-white',
+                    }}
+                >
+                    <div className="text-2xl font-bold">{props.count.classrooms}</div>
+                </CardStat>
+                {/* Mata Kuliah */}
+                <CardStat
+                    data={{
+                        title: 'Total Mata Kuliah',
+                        icon: IconBooks,
+                        background: 'text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600',
+                        iconClassName: 'text-white',
+                    }}
+                >
+                    <div className="text-2xl font-bold">{props.count.courses}</div>
+                </CardStat>
             </div>
         </div>
     );
