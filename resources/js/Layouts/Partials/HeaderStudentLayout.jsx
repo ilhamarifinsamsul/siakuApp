@@ -1,6 +1,6 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import NavigationMenu from '@/Components/NavigationMenu';
-import { Avatar, AvatarFallback } from '@/Components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/Components/ui/avatar';
 import { Button } from '@/Components/ui/button';
 import {
     DropdownMenu,
@@ -12,10 +12,11 @@ import {
 } from '@/Components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 import { Disclosure } from '@headlessui/react';
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { IconChevronCompactDown, IconLayoutSidebar, IconLogout2, IconX } from '@tabler/icons-react';
 
 export default function HeaderStudentLayout({ url }) {
+    const auth = usePage().props.auth.user;
     return (
         <>
             <Disclosure
@@ -88,14 +89,16 @@ export default function HeaderStudentLayout({ url }) {
                                                     className="data-[state=open]:bg-orange-500 data-[state=open]:text-white"
                                                 >
                                                     <Avatar className="size-8 rounded-lg">
+                                                        <AvatarImage src={auth.avatar} alt={auth.name} />
                                                         <AvatarFallback className="rounded-lg text-blue-600">
-                                                            X
+                                                            {auth.name.charAt(0).toUpperCase()}
                                                         </AvatarFallback>
                                                     </Avatar>
                                                     <div className="grid flex-1 text-left text-sm leading-tight">
-                                                        <span className="truncate font-semibold">Luffy</span>
+                                                        <span className="truncate font-semibold">{auth.name}</span>
                                                         <span className="truncate text-xs text-gray-200">
-                                                            luffy@bwa.test
+                                                            {auth.student.student_number} |{' '}
+                                                            {auth.student.classroom.name}
                                                         </span>
                                                     </div>
                                                     <IconChevronCompactDown className="ml-auto size-4" />
@@ -110,14 +113,16 @@ export default function HeaderStudentLayout({ url }) {
                                                 <DropdownMenuLabel className="p-0 font-normal">
                                                     <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                                                         <Avatar className="size-8 rounded-lg">
+                                                            <AvatarImage src={auth.avatar} alt={auth.name} />
                                                             <AvatarFallback className="rounded-lg text-blue-600">
-                                                                X
+                                                                {auth.name.charAt(0).toUpperCase()}
                                                             </AvatarFallback>
                                                         </Avatar>
                                                         <div className="grid flex-1 text-left text-sm leading-tight">
-                                                            <span className="truncate font-semibold">Luffy</span>
+                                                            <span className="truncate font-semibold">{auth.name}</span>
                                                             <span className="truncate text-xs text-gray-200">
-                                                                luffy@bwa.test
+                                                                {auth.student.student_number} |{' '}
+                                                                {auth.student.classroom.name}
                                                             </span>
                                                         </div>
                                                     </div>
@@ -203,12 +208,15 @@ export default function HeaderStudentLayout({ url }) {
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
                                         <Avatar>
-                                            <AvatarFallback>X</AvatarFallback>
+                                            <AvatarImage src={auth.avatar} alt={auth.name} />
+                                            <AvatarFallback>{auth.name.charAt(0).toUpperCase()}</AvatarFallback>
                                         </Avatar>
                                     </div>
                                     <div className="ml-3">
-                                        <div className="text-base font-medium text-white">Luffy</div>
-                                        <div className="text-sm text-white">luffy@bwa.test</div>
+                                        <div className="text-base font-medium text-white">{auth.name}</div>
+                                        <div className="text-sm text-white">
+                                            {auth.student.student_number} | {auth.student.classroom.name}
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="mt-3 space-y-1 px-2">
@@ -216,7 +224,7 @@ export default function HeaderStudentLayout({ url }) {
                                         as="button"
                                         href={route('logout')}
                                         method="post"
-                                        className="flex items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-500"
+                                        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-500"
                                     >
                                         <IconLogout2 className="size-5" />
                                         Logout
